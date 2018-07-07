@@ -112,7 +112,7 @@
 180710          IF  IN1-SEX  = '1'
 180710              MOVE  '男'        TO  OT1-SEX
 180710          ELSE
-180710              MOVE  '男'        TO  OT1-SEX
+180710              MOVE  '女'        TO  OT1-SEX
 180710          END-IF
       *         ファイル出力
                 WRITE  OT1-REC
