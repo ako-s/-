@@ -3,8 +3,8 @@
       ********************************************************
       * プログラム名    ：さんぷる  こぼ
       * 作成日／作成者  ：２０１８年０７月０７日  山田太郎
-      * 変更日／変更者  ：
-      *       変更内容  ：
+      * 変更日／変更者  ：２０１８年０７月１０日　鈴木一郎
+      *       変更内容  ：性別を漢字変換する
       ********************************************************
        ENVIRONMENT            DIVISION.
        INPUT-OUTPUT           SECTION.
@@ -37,8 +37,8 @@
       *      生年月日 YYYY/MM/DD 
          05  OT1-BIRTH        PIC  X(10).
          05  OT1-CM2          PIC  X(01).
-      *      性別 (1:男、2:女) 
-         05  OT1-SEX          PIC  X(01).
+180710*      性別 ('男'、'女') 
+180710   05  OT1-SEX          PIC  X(02).
       *
        WORKING-STORAGE        SECTION.
        01  WK-AREA.
@@ -109,7 +109,11 @@
                                           WK-S2
                 MOVE  WK-YMD          TO  OT1-BIRTH
       *
-                MOVE  IN1-SEX         TO  OT1-SEX
+180710          IF  IN1-SEX  = '1'
+180710              MOVE  '男'        TO  OT1-SEX
+180710          ELSE
+180710              MOVE  '女'        TO  OT1-SEX
+180710          END-IF
       *         ファイル出力
                 WRITE  OT1-REC
                 ADD  1        TO  CNT-OT1
